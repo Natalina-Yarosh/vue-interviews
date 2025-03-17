@@ -2,15 +2,20 @@
 import { ref, computed } from 'vue'
 import type {ComputedRef} from 'vue'
 import { useUserStore } from '@/stores/user'
+import {getAuth, signOut} from "firebase/auth";
 
+import {useRouter} from "vue-router";
 
 const userStore = useUserStore()
+const router = useRouter()
+
 interface IMenuItem {
   label: string
   icon: string
   path: string
   show: ComputedRef<boolean>
 }
+
 
 const items = ref<IMenuItem[]>([
   {
@@ -38,13 +43,16 @@ const items = ref<IMenuItem[]>([
     show: computed(():boolean =>!!userStore.userId)
   },
 ])
+
+const signOutMethod = async(): Promise<void> => {
+  await signOut(getAuth())
+  router.push('/auth')
+}
+
 </script>
 
 <template>
   <app-menubar :model="items" class="menu">
-    <template #start>
-      {{ userStore.userId }}
-    </template>
     <template  #item="{ item, props }">
       <template v-if="item.show">
         <router-link :to="item.path" class="flex align-items-center" v-bind="props.action">
@@ -55,7 +63,7 @@ const items = ref<IMenuItem[]>([
      
     </template>
     <template #end>
-      <div  v-if="userStore.userId" @click="userStore.userId = ''" class="flex align-items-center menu-exit">
+      <div  v-if="userStore.userId" @click="signOutMethod" class="flex align-items-center menu-exit">
         <span  class="pi pi-sign-out p-menuitem-icon"></span>
         <span class="ml-2">Выход</span>
       </div>
