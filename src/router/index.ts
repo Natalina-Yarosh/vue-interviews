@@ -1,6 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import type { RouteRecordRaw,RouteLocationNormalized, NavigationGuardNext } from 'vue-router'
-import { useUserStore } from '@/stores/user'
 import {getAuth, onAuthStateChanged} from "firebase/auth";
 
 const checkAuth = (to: RouteLocationNormalized, from: RouteLocationNormalized, next: NavigationGuardNext) => {
@@ -15,14 +14,6 @@ const checkAuth = (to: RouteLocationNormalized, from: RouteLocationNormalized, n
       next('/auth')
     }
   })
-
-  // const userStore = useUserStore();
-  //
-  // if (!userStore.userId) {
-  //   next({ name: 'Auth' })
-  // } else {
-  //   next()
-  // }
 }
 
 
