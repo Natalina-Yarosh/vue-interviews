@@ -17,7 +17,7 @@ import Menubar from 'primevue/menubar';
 import Button from 'primevue/button';
 import InputText from 'primevue/inputtext';
 import Toast from 'primevue/toast';
-
+import Tooltip from 'primevue/tooltip';
 import ProgressSpinner from 'primevue/progressspinner';
 import Card from 'primevue/card';
 import  DataTable  from 'primevue/datatable';
@@ -28,6 +28,7 @@ import  InputNumber from 'primevue/inputnumber';
 import Textarea from 'primevue/textarea';
 import DatePicker  from "primevue/datepicker";
 import RadioButton  from "primevue/radiobutton";
+import Badge  from 'primevue/badge';
 
 import App from './App.vue'
 import router from './router'
@@ -59,6 +60,7 @@ app.use(PrimeVue, {
     }
 });
 app.use(router)
+app.directive('tooltip',Tooltip)
 app.component('app-menubar', Menubar);
 app.component('app-button', Button);
 app.component('app-input-text', InputText);
@@ -73,5 +75,6 @@ app.component('app-input-number', InputNumber);
 app.component('app-textarea', Textarea);
 app.component('app-calendar', DatePicker);
 app.component('app-radio', RadioButton);
+app.component('app-badge', Badge);
 
 app.mount('#app')
