@@ -51,13 +51,13 @@ const setChartData = () => {
       {
         data,
         backgroundColor: [
-          documentStyle.getPropertyValue('--p-cyan-500'),
-          documentStyle.getPropertyValue('--p-orange-500'),
+          documentStyle.getPropertyValue('--p-green-500'),
+          documentStyle.getPropertyValue('--p-red-500'),
           documentStyle.getPropertyValue('--p-gray-500'),
         ],
         hoverBackgroundColor: [
-          documentStyle.getPropertyValue('--p-cyan-400'),
-          documentStyle.getPropertyValue('--p-orange-400'),
+          documentStyle.getPropertyValue('--p-green-400'),
+          documentStyle.getPropertyValue('--p-red-400'),
           documentStyle.getPropertyValue('--p-gray-400'),
         ],
       },
@@ -84,12 +84,12 @@ const setChartOptions = () => {
 
 <template>
   <h1>Статистика</h1>
-  <div class="card flex justify-center">
+  <div class="card flex justify-content-center " >
     <app-chart
       type="doughnut"
       :data="chartData"
       :options="chartOptions"
-      class="w-full md:w-[300px]"
+      class="w-[50%]"
     />
   </div>
 </template>

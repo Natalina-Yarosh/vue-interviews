@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import {ref, onMounted} from "vue";
-import {useRoute} from 'vue-router'
+import {useRoute, useRouter} from 'vue-router'
 import {getFirestore, doc, getDoc, updateDoc, Timestamp} from "firebase/firestore";
 import {useUserStore} from '@/stores/user'
 import type {IInterview, IStage} from "@/interfaces";
@@ -8,6 +8,7 @@ import type {IInterview, IStage} from "@/interfaces";
 const db = getFirestore()
 const userStore = useUserStore()
 const route = useRoute()
+const router = useRouter()
 
 const isLoading = ref<boolean>(true)
 const interview = ref<IInterview>()
@@ -43,6 +44,8 @@ const saveInterview = async (): Promise<void> => {
   isLoading.value = true
   await updateDoc(docref, { ...interview.value })
   await getData()
+  await router.push('/list')
+ 
 }
 
 const addStage = () =>{
