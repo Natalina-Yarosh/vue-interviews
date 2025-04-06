@@ -10,6 +10,8 @@ import {
 import { useUserStore } from '@/stores/user';
 import type { IInterview } from '@/interfaces.ts';
 
+import Chart from 'primevue/chart';
+
 const userStore = useUserStore()
  const db = getFirestore()
  const interviews = ref<IInterview[]>([])
@@ -85,8 +87,8 @@ const setChartOptions = () => {
 <template>
   <h1>Статистика</h1>
   <div class="card flex justify-content-center " >
-    <app-chart
-      type="pie"
+    <Chart
+      type="doughnut"
       :data="chartData"
       :options="chartOptions"
       class="w-[100rem] md:w-[30rem]"
