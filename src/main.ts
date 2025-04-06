@@ -62,6 +62,8 @@ app.use(PrimeVue, {
 });
 app.use(router)
 app.directive('tooltip',Tooltip)
+
+
 app.component('app-menubar', Menubar);
 app.component('app-button', Button);
 app.component('app-input-text', InputText);
