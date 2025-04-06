@@ -109,7 +109,7 @@ onMounted(async () => {
       <app-column field="hrName" header="Имя HR"></app-column>
       <app-column field="vacancyLink" header="Вакансия">
         <template #body="slotProps">
-          <a :href="slotProps.data.vacancyLink" target="_blank"
+          <a :href="slotProps.data.vacancyLink" target="_blank" class="text-sm text-teal-300"
             >Ссылка на вакансию</a
           >
         </template>
@@ -173,7 +173,7 @@ onMounted(async () => {
           <template v-else>
             <app-badge
               :severity="
-                slotProps.data.result === 'Offer' ? 'success' : 'danger'
+                slotProps.data.result === 'Offer' ? '' : 'danger'
               "
               :value="slotProps.data.result === 'Offer' ? 'Оффер' : 'Отказ'"
             />
@@ -184,7 +184,7 @@ onMounted(async () => {
         <template #body="slotProps">
           <div class="flex gap-2">
             <router-link :to="`/interview/${slotProps.data.id}`">
-              <app-button icon="pi pi-pencil" severity="info" />
+              <app-button icon="pi pi-pencil" />
             </router-link>
             <app-button
               icon="pi pi-trash"
@@ -208,7 +208,7 @@ onMounted(async () => {
   color: #0088cc;
 }
 .contacts__whatsapp {
-  color: #25d366;
+  color: #34d399;
 }
 .contacts__phone {
   color: #adadad;

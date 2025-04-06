@@ -73,7 +73,7 @@ const submitForm =():void => {
       <div class="text-center mb-3">
         <div class="text-900 text-3xl font-medium mb-3">Приветствую!</div>
         <span class="text-600 font-medium line-height-3">{{ subtitleText }}</span>
-        <a class="font-medium no-underline ml-2 text-blue-500 cursor-pointer" @click="toggleAuth">
+        <a class="font-medium no-underline ml-2 text-teal-200 cursor-pointer" @click="toggleAuth">
           {{ linkAccountText }}
         </a>
       </div>

@@ -108,7 +108,7 @@ onMounted(async () => await getData())
           </div>
       </div>
 
-        <app-button label="Добавить этап" severity="info" icon="pi pi-plus" class="mb-3" @click="addStage" />
+        <app-button label="Добавить этап"  icon="pi pi-plus" class="mb-3" @click="addStage" />
         <template v-if="interview.stages">
           <div v-for="(stage, index) in interview.stages" :key="index"  class="interview-stage">
             <div class="flex flex-column gap-2">
@@ -137,7 +137,7 @@ onMounted(async () => await getData())
           </div>
 
         </div>
-          <app-button label="Сохранить" severity="info" icon="pi pi-save" @click="saveInterview"/>
+          <app-button label="Сохранить" icon="pi pi-save" @click="saveInterview"/>
       </template>
     </app-card>
   </div>
